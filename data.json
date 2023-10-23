@@ -1,0 +1,54 @@
+{
+  "abonnements": [
+    {
+      "id": 1,
+      "nom": "Netflix",
+      "description": "Un service de streaming vidéo",
+      "prix": 10.99
+    },
+    {
+      "id": 2,
+      "nom": "Spotify",
+      "description": "Un service de streaming musical",
+      "prix": 9.99
+    },
+    {
+      "id": 4,
+      "nom": "Free",
+      "description": "Un service de Téléphonie",
+      "prix": 10.99
+    },
+    {
+      "id": 5,
+      "nom": "Orange",
+      "description": "Un service de Téléphonie",
+      "prix": 9.99
+    },
+    {
+      "id": 6,
+      "nom": "Bouygue Telecom",
+      "description": "Un service de Téléphonie",
+      "prix": 12.99
+    }
+  ],
+  "abonnementsList": [
+    {
+      "id": 4,
+      "nom": "Free",
+      "description": "Un service de Téléphonie",
+      "prix": 10.99
+    },
+    {
+      "id": 5,
+      "nom": "Orange",
+      "description": "Un service de Téléphonie",
+      "prix": 9.99
+    },
+    {
+      "id": 6,
+      "nom": "Bouygue Telecom",
+      "description": "Un service de Téléphonie",
+      "prix": 12.99
+    }
+  ]
+}
