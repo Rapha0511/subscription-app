@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import SubscriptionItem from "./SubscriptionItem";
+import FilterBar from "./FilterBar";
 
 export default function SubscriptionList() {
   const [abonnementsList, setAbonnementsList] = useState([]);
-
+  const [filterdArray, setFilteredArray] = useState(abonnementsList);
   const fetchAbonnementsList = async () => {
     const response = await fetch("http://localhost:3000/abonnementsList");
     const res = await response.json();
-    console.log(res);
     setAbonnementsList(res);
   };
 
@@ -30,11 +30,17 @@ export default function SubscriptionList() {
       console.log("error");
     }
   };
+
+  const arrayToDisplay = !filterdArray.length ? abonnementsList : filterdArray;
+
   return (
     <div>
+      <FilterBar
+        subsArray={abonnementsList}
+        setFilteredArray={setFilteredArray}
+      />
       <h1>Liste des abonnements</h1>
-
-      {abonnementsList.map((abonnement) => (
+      {arrayToDisplay.map((abonnement) => (
         <SubscriptionItem
           key={abonnement.id}
           nom={abonnement.nom}
