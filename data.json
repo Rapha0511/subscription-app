@@ -37,6 +37,12 @@
       "nom": "Bouygue Telecom",
       "description": "Un service de Téléphonie",
       "prix": 12.99
+    },
+    {
+      "id": 7,
+      "nom": "Bouygue Telecom",
+      "description": "Un service de Téléphonie",
+      "prix": 1.99
     }
   ]
 }
