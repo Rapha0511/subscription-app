@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
 import SubscriptionItem from "./components/SubscriptionItem";
 import { Link } from "react-router-dom";
+import FilterBar from "./components/FilterBar";
+import PriceFilterButton from "./components/PriceFilterButton";
+import utils from "./utils/utils";
+
 const App = () => {
   const [abonnements, setAbonnements] = useState([]);
+  const [filteringOptions, setFilteringOptions] = useState({
+    name: "",
+    price: null,
+  });
+  const [filteredArray, setFilteredArray] = useState([]);
 
   /**
    * Get all subs
@@ -27,7 +36,6 @@ const App = () => {
     } else {
       console.log("error while removing sub");
     }
-
     fetchAbonnements();
   };
 
@@ -35,11 +43,24 @@ const App = () => {
     fetchAbonnements();
   }, []);
 
+  useEffect(() => {
+    utils.filterData(abonnements, filteringOptions, setFilteredArray);
+  }, [filteringOptions]);
+
+  const arrayToDisplay = !filteredArray.length ? abonnements : filteredArray;
+
   return (
     <div>
       <h1>Liste des abonnements</h1>
-
-      {abonnements.map((abonnement) => (
+      <FilterBar
+        filteringOptions={filteringOptions}
+        setFilteringOptions={setFilteringOptions}
+      />
+      <PriceFilterButton
+        filteringOptions={filteringOptions}
+        setFilteringOptions={setFilteringOptions}
+      />
+      {arrayToDisplay.map((abonnement) => (
         <SubscriptionItem
           key={abonnement.id}
           nom={abonnement.nom}
