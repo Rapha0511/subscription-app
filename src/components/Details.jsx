@@ -33,9 +33,25 @@ export default function Details() {
 
     if (response.status === 201) {
       console.log("success");
+      deleteFromList(data.id);
       navigate("/");
     } else {
       console.log("error");
+    }
+  };
+
+  const deleteFromList = async (id) => {
+    const response = await fetch(
+      `http://localhost:3000/abonnementsList/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (response.status === 204) {
+      console.log("error");
+    } else {
+      console.log("success");
     }
   };
 

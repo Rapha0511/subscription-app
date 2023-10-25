@@ -44,15 +44,18 @@ export default function SubscriptionList() {
         setFilteringOptions={setFilteringOptions}
       />
       <h1>Liste des abonnements</h1>
-      {arrayToDisplay.map((abonnement) => (
-        <SubscriptionItem
-          key={abonnement.id}
-          nom={abonnement.nom}
-          description={abonnement.description}
-          prix={abonnement.prix}
-          redirect={() => navigate(`/details/${abonnement.id}`)}
-        />
-      ))}
+      {arrayToDisplay.length
+        ? arrayToDisplay.map((abonnement) => (
+            <SubscriptionItem
+              key={abonnement.id}
+              nom={abonnement.nom}
+              description={abonnement.description}
+              prix={abonnement.prix}
+              carbon={abonnement.carbon}
+              redirect={() => navigate(`/details/${abonnement.id}`)}
+            />
+          ))
+        : "Aucun abonnement disponible"}
     </div>
   );
 }

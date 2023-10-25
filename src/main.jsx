@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import SubscriptionList from "./components/SubscriptionList.jsx";
 import Details from "./components/Details.jsx";
-import AlreadySubsDetail from "./components/alreadySubsDetail.jsx";
+import AlreadySubsDetail from "./components/AlreadySubsDetail.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 

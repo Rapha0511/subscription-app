@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AlreadySubsDetail() {
   const [abonnement, setAbonnement] = useState([]);
@@ -11,7 +12,6 @@ export default function AlreadySubsDetail() {
     const response = await fetch(`http://localhost:3000/abonnements/${id}`);
     const res = await response.json();
     setAbonnement(res);
-    // Filter the data when you fetch it initially
   };
 
   /**
@@ -23,10 +23,27 @@ export default function AlreadySubsDetail() {
     });
 
     if (response.status === 204) {
-      console.log("sub successfully removed");
+      console.log("error");
     } else {
-      console.log("error while removing sub");
+      console.log("success");
+      addBackToList();
+    }
+  };
+
+  const addBackToList = async () => {
+    const response = await fetch("http://localhost:3000/abonnementsList", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...abonnement, id: uuidv4() }),
+    });
+
+    if (response.status === 201) {
+      console.log("success");
       navigate("/");
+    } else {
+      console.log("error");
     }
   };
 
@@ -40,7 +57,7 @@ export default function AlreadySubsDetail() {
       <p>{abonnement.nom}</p>
       <p>{abonnement.description}</p>
       <p>{abonnement.prix}</p>
-      <button onClick={() => deleteSubscription(id)}>fonctionne plz</button>
+      <button onClick={() => deleteSubscription(id)}>Delete</button>
     </div>
   );
 }

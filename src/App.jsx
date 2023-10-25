@@ -3,6 +3,7 @@ import SubscriptionItem from "./components/SubscriptionItem";
 import { Link, useNavigate } from "react-router-dom";
 import FilterBar from "./components/FilterBar";
 import PriceFilterButton from "./components/PriceFilterButton";
+import Recommendation from "./components/recommendation";
 import utils from "./utils/utils";
 
 const App = () => {
@@ -50,10 +51,12 @@ const App = () => {
           nom={abonnement.nom}
           description={abonnement.description}
           prix={abonnement.prix}
+          carbon={abonnement.carbon}
           redirect={() => navigate(`/mySubDetails/${abonnement.id}`)}
         />
       ))}
       <Link to={"/list"}>liste d'abonnement</Link>
+      <Recommendation />
     </div>
   );
 };
