@@ -3,6 +3,7 @@ import SubscriptionItem from "./SubscriptionItem";
 import FilterBar from "./FilterBar";
 import PriceFilterButton from "./PriceFilterButton";
 import utils from "../utils/utils";
+import { useNavigate } from "react-router-dom";
 
 export default function SubscriptionList() {
   const [abonnementsList, setAbonnementsList] = useState([]);
@@ -11,6 +12,7 @@ export default function SubscriptionList() {
     price: null,
   });
   const [filteredArray, setFilteredArray] = useState([]);
+  const navigate = useNavigate();
 
   const fetchAbonnementsList = async () => {
     const response = await fetch("http://localhost:3000/abonnementsList");
@@ -26,26 +28,6 @@ export default function SubscriptionList() {
   useEffect(() => {
     utils.filterData(abonnementsList, filteringOptions, setFilteredArray); // Update filteredArray when filteringOptions change
   }, [filteringOptions]);
-
-  /**
-   *
-   * @param {Object} data the object to add
-   */
-  const addSub = async (data) => {
-    const response = await fetch("http://localhost:3000/abonnements", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.status === 201) {
-      console.log("success");
-    } else {
-      console.log("error");
-    }
-  };
 
   const arrayToDisplay = !filteredArray.length
     ? abonnementsList
@@ -68,8 +50,7 @@ export default function SubscriptionList() {
           nom={abonnement.nom}
           description={abonnement.description}
           prix={abonnement.prix}
-          actionButton={() => addSub(abonnement)}
-          action="add"
+          redirect={() => navigate(`/details/${abonnement.id}`)}
         />
       ))}
     </div>
