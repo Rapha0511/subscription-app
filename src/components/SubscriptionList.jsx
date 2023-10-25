@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SubscriptionItem from "./SubscriptionItem";
 import FilterBar from "./FilterBar";
 import PriceFilterButton from "./PriceFilterButton";
+import utils from "../utils/utils";
 
 export default function SubscriptionList() {
   const [abonnementsList, setAbonnementsList] = useState([]);
@@ -16,38 +17,6 @@ export default function SubscriptionList() {
     const res = await response.json();
     setAbonnementsList(res);
     // Filter the data when you fetch it initially
-    filterData(res, filteringOptions);
-  };
-
-  /**
-   *
-   * @param {Array} data an array containing all offers
-   * @param {Object} filteringOptions an object containing the filtering option, this object is filled
-   * when searching or clicking on price filtering button
-   */
-  const filterData = (data, filteringOptions) => {
-    const { name, price } = filteringOptions;
-    let newFilteredArray = [...data]; // Create a copy to avoid mutating original data
-
-    if (name !== "") {
-      newFilteredArray = newFilteredArray.filter((sub) =>
-        sub.nom.toLowerCase().includes(name.toLowerCase())
-      );
-    }
-
-    if (price !== null) {
-      if (price) {
-        newFilteredArray = newFilteredArray
-          .slice()
-          .sort((a, b) => a.prix - b.prix);
-      } else {
-        newFilteredArray = newFilteredArray
-          .slice()
-          .sort((a, b) => b.prix - a.prix);
-      }
-    }
-
-    setFilteredArray(newFilteredArray); // Update the filtered array state
   };
 
   useEffect(() => {
@@ -55,7 +24,7 @@ export default function SubscriptionList() {
   }, []);
 
   useEffect(() => {
-    filterData(abonnementsList, filteringOptions); // Update filteredArray when filteringOptions change
+    utils.filterData(abonnementsList, filteringOptions, setFilteredArray); // Update filteredArray when filteringOptions change
   }, [filteringOptions]);
 
   /**
