@@ -1,3 +1,4 @@
+import Header from "./Header";
 import { useState, useEffect } from "react";
 import SubscriptionItem from "./SubscriptionItem";
 import FilterBar from "./FilterBar";
@@ -6,6 +7,7 @@ import utils from "../utils/utils";
 import { useNavigate } from "react-router-dom";
 
 export default function SubscriptionList() {
+
   const [abonnementsList, setAbonnementsList] = useState([]);
   const [filteringOptions, setFilteringOptions] = useState({
     name: "",
@@ -14,20 +16,22 @@ export default function SubscriptionList() {
   const [filteredArray, setFilteredArray] = useState([]);
   const navigate = useNavigate();
 
-  const fetchAbonnementsList = async () => {
-    const response = await fetch("http://localhost:3000/abonnementsList");
-    const res = await response.json();
-    setAbonnementsList(res);
-    // Filter the data when you fetch it initially
-  };
 
-  useEffect(() => {
-    fetchAbonnementsList();
-  }, []);
+    const fetchAbonnementsList = async () => {
+        const response = await fetch("http://localhost:3000/abonnementsList");
+        const res = await response.json();
+        setAbonnementsList(res);
+        // Filter the data when you fetch it initially
+    };
 
-  useEffect(() => {
-    utils.filterData(abonnementsList, filteringOptions, setFilteredArray); // Update filteredArray when filteringOptions change
-  }, [filteringOptions]);
+    useEffect(() => {
+        fetchAbonnementsList();
+    }, []);
+
+    useEffect(() => {
+        utils.filterData(abonnementsList, filteringOptions, setFilteredArray); // Update filteredArray when filteringOptions change
+    }, [filteringOptions]);
+
 
   const arrayToDisplay = !filteredArray.length
     ? abonnementsList
@@ -58,4 +62,5 @@ export default function SubscriptionList() {
         : "Aucun abonnement disponible"}
     </div>
   );
+
 }

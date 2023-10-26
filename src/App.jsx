@@ -5,8 +5,11 @@ import FilterBar from "./components/FilterBar";
 import PriceFilterButton from "./components/PriceFilterButton";
 import Recommendation from "./components/recommendation";
 import utils from "./utils/utils";
+import Header from "./components/Header";
+import "./App.css";
 
 const App = () => {
+
   const [abonnements, setAbonnements] = useState([]);
   const [filteringOptions, setFilteringOptions] = useState({
     name: "",
@@ -28,15 +31,14 @@ const App = () => {
     fetchAbonnements();
   }, []);
 
-  useEffect(() => {
-    utils.filterData(abonnements, filteringOptions, setFilteredArray);
-  }, [filteringOptions]);
+    const arrayToDisplay = !filteredArray.length ? abonnements : filteredArray;
 
-  const arrayToDisplay = !filteredArray.length ? abonnements : filteredArray;
-
+    return (
+        <div>
+            <Header />
   return (
     <div>
-      <h1>Liste des abonnements</h1>
+     <Header />
       <FilterBar
         filteringOptions={filteringOptions}
         setFilteringOptions={setFilteringOptions}
@@ -45,16 +47,24 @@ const App = () => {
         filteringOptions={filteringOptions}
         setFilteringOptions={setFilteringOptions}
       />
+     <div className="subscription__grid">
       {arrayToDisplay.map((abonnement) => (
+         <div
+                        key={abonnement.id}
+                        className="subscription__container"
+                    >
         <SubscriptionItem
           key={abonnement.id}
           nom={abonnement.nom}
           description={abonnement.description}
           prix={abonnement.prix}
           carbon={abonnement.carbon}
+impact={abonnement.impact}
           redirect={() => navigate(`/mySubDetails/${abonnement.id}`)}
         />
+</div>
       ))}
+      </div>
       <Link to={"/list"}>liste d'abonnement</Link>
       <Recommendation />
     </div>
