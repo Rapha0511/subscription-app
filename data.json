@@ -3,8 +3,28 @@
     {
       "id": "31f7291d-db31-4c10-a3d5-ff163785ae5e",
       "nom": "Orange",
+      "id": "3571ebb8-e457-446f-8569-76672ef62147",
+      "nom": "Bouygue Telecom",
       "description": "Un service de Téléphonie",
-      "prix": 9.99,
+      "prix": 12.99,
+      "carbon": 10,
+      "impact": "Moyen",
+      "type": "telecom"
+    },
+    {
+      "id": "980e24aa-967d-4d2e-b9bc-f1d4207656e9",
+      "nom": "OCS",
+      "description": "Un service de streaming",
+      "prix": 22.99,
+      "carbon": 40,
+      "impact": "Moyen",
+      "type": "streaming"
+    },
+    {
+      "id": "75976c3a-4e05-49fb-a0be-5e7f969c472a",
+      "nom": "Free",
+      "description": "Un service de Téléphonie",
+      "prix": 10.99,
       "carbon": 60,
       "impact": "Mauvais",
       "type": "telecom",
@@ -19,6 +39,7 @@
       "impact": "Bon",
       "type": "telecom",
       "image": "./src/assets/Bouygues_Telecom_(alt_logo).svg.png"
+<<<<<<< HEAD
     },
     {
       "id": "42e5a8a0-f741-4337-8956-43378d641092",
@@ -28,11 +49,28 @@
       "carbon": 40,
       "impact": "Moyen",
       "type": "streaming"
+=======
+      "impact": "Moyen",
+      "type": "telecom"
+    },
+    {
+      "id": "0e0d03e9-6531-497c-8703-14373dcc8d0b",
+      "nom": "Orange",
+      "description": "Un service de Téléphonie",
+      "prix": 9.99,
+      "carbon": 50,
+      "impact": "Moyen",
+      "type": "telecom"
+>>>>>>> 9dc6bb9d30a95d0d665147e9c6aea566aa1ea039
     }
   ],
   "abonnementsList": [
     {
+<<<<<<< HEAD
       "id": "fccbcc11-4cc7-4e55-91b9-151729be6cd0",
+=======
+      "id": "3deb95b1-9261-4e37-be6c-b831ad932c29",
+>>>>>>> 9dc6bb9d30a95d0d665147e9c6aea566aa1ea039
       "nom": "Netflix",
       "description": "Un service de streaming",
       "prix": 20.99,
@@ -41,6 +79,7 @@
       "type": "streaming"
     },
     {
+<<<<<<< HEAD
       "id": "20dbdcd0-4997-41d1-8e6a-2443db42e80a",
       "nom": "SFR",
       "description": "Un service de Téléphonie",
@@ -59,6 +98,15 @@
       "impact": "Neutre",
       "type": "telecom",
       "image": "./src/assets/Free_logo.svg.png"
+=======
+      "id": "a9c950b5-db34-4552-b5ed-7e2f639c851e",
+      "nom": "SFR",
+      "description": "Un service de Téléphonie",
+      "prix": 1.99,
+      "carbon": 30,
+      "impact": "Moyen",
+      "type": "telecom"
+>>>>>>> 9dc6bb9d30a95d0d665147e9c6aea566aa1ea039
     }
   ]
 }
