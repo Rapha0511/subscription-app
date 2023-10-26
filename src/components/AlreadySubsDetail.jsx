@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import Recommendation from "./recommendation";
 
 export default function AlreadySubsDetail() {
   const [abonnement, setAbonnement] = useState([]);
@@ -58,6 +59,7 @@ export default function AlreadySubsDetail() {
       <p>{abonnement.description}</p>
       <p>{abonnement.prix}</p>
       <button onClick={() => deleteSubscription(id)}>Delete</button>
+      <Recommendation type={abonnement.type} carbon={abonnement.carbon} />
     </div>
   );
 }

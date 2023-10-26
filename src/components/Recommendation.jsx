@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SubscriptionItem from "./SubscriptionItem";
 
-export default function Recommendation({ type }) {
-  const [filteredArray, setFilteredArray] = useState([]);
+export default function Recommendation({ type, carbon }) {
   const [maxFootPrintSub, setMaxFootPrintsub] = useState([]);
   const [NonSubList, setNonSubList] = useState([]);
   let navigate = useNavigate();
@@ -20,11 +19,18 @@ export default function Recommendation({ type }) {
     }
   };
 
-  const getNonSubList = async (maxFootPrintSub) => {
+  const getNonSubList = async (maxFootPrintSub, carbon, type) => {
     try {
       if (maxFootPrintSub && maxFootPrintSub.carbon) {
         const response = await fetch(
           `http://localhost:3000/abonnementsList?carbon_lte=${maxFootPrintSub.carbon}`
+        );
+        const res = await response.json();
+        setNonSubList(res);
+      }
+      if (type && carbon) {
+        const response = await fetch(
+          `http://localhost:3000/abonnementsList?carbon_lte=${carbon}&type=${type}`
         );
         const res = await response.json();
         setNonSubList(res);
@@ -40,7 +46,7 @@ export default function Recommendation({ type }) {
 
   useEffect(() => {
     if (maxFootPrintSub && maxFootPrintSub.carbon) {
-      getNonSubList(maxFootPrintSub);
+      getNonSubList(maxFootPrintSub, carbon, type);
     }
   }, [maxFootPrintSub]);
 
