@@ -3,7 +3,7 @@ import SubscriptionItem from "./components/SubscriptionItem";
 import { Link, useNavigate } from "react-router-dom";
 import FilterBar from "./components/FilterBar";
 import PriceFilterButton from "./components/PriceFilterButton";
-import Recommendation from "./components/recommendation";
+import Recommendation from "./components/Recommendation";
 import utils from "./utils/utils";
 import Header from "./components/Header";
 import "./App.css";
