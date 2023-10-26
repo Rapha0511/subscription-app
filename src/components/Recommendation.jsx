@@ -9,26 +9,40 @@ export default function Recommendation({ type }) {
   let navigate = useNavigate();
 
   const getMaxFootPrintSub = async () => {
-    const response = await fetch(
-      `http://localhost:3000/abonnements?_sort=carbon&_order=desc&_limit=1`
-    );
-    const res = await response.json();
-    setMaxFootPrintsub(res[0]);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/abonnements?_sort=carbon&_order=desc&_limit=1`
+      );
+      const res = await response.json();
+      setMaxFootPrintsub(res[0]);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const getNonSubList = async (maxFootPrintSub) => {
-    const response = await fetch(
-      `http://localhost:3000/abonnementsList?carbon_lte=${maxFootPrintSub.carbon}`
-    );
-    const res = await response.json();
-    console.log(res, "ressssssss");
-    setNonSubList(res);
+    try {
+      if (maxFootPrintSub && maxFootPrintSub.carbon) {
+        const response = await fetch(
+          `http://localhost:3000/abonnementsList?carbon_lte=${maxFootPrintSub.carbon}`
+        );
+        const res = await response.json();
+        setNonSubList(res);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
     getMaxFootPrintSub();
-    getNonSubList(maxFootPrintSub);
-  }, [maxFootPrintSub.carbon]);
+  }, []);
+
+  useEffect(() => {
+    if (maxFootPrintSub && maxFootPrintSub.carbon) {
+      getNonSubList(maxFootPrintSub);
+    }
+  }, [maxFootPrintSub]);
 
   return (
     <div style={{ display: "flex" }}>
