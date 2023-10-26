@@ -2,19 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SubscriptionItem from "./SubscriptionItem";
 
-<<<<<<< HEAD
 export default function Recommendation({ type, carbon }) {
-    const [filteredArray, setFilteredArray] = useState([]);
     const [maxFootPrintSub, setMaxFootPrintsub] = useState([]);
     const [NonSubList, setNonSubList] = useState([]);
     let navigate = useNavigate();
-=======
-
-export default function Recommendation({ type, carbon }) {
-  const [maxFootPrintSub, setMaxFootPrintsub] = useState([]);
-  const [NonSubList, setNonSubList] = useState([]);
-  let navigate = useNavigate();
->>>>>>> 9dc6bb9d30a95d0d665147e9c6aea566aa1ea039
 
     const getMaxFootPrintSub = async () => {
         try {
@@ -27,8 +18,6 @@ export default function Recommendation({ type, carbon }) {
             console.error(error);
         }
     };
-<<<<<<< HEAD
-
     const getNonSubList = async (maxFootPrintSub, carbon, type) => {
         try {
             if (maxFootPrintSub && maxFootPrintSub.carbon) {
@@ -49,46 +38,16 @@ export default function Recommendation({ type, carbon }) {
             console.error(error);
         }
     };
-=======
-  const getNonSubList = async (maxFootPrintSub, carbon, type) => {
-    try {
-      if (maxFootPrintSub && maxFootPrintSub.carbon) {
-        const response = await fetch(
-          `http://localhost:3000/abonnementsList?carbon_lte=${maxFootPrintSub.carbon}`
-        );
-        const res = await response.json();
-        setNonSubList(res);
-      }
-      if (type && carbon) {
-        const response = await fetch(
-          `http://localhost:3000/abonnementsList?carbon_lte=${carbon}&type=${type}`
-        );
-        const res = await response.json();
-        setNonSubList(res);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
->>>>>>> 9dc6bb9d30a95d0d665147e9c6aea566aa1ea039
 
     useEffect(() => {
         getMaxFootPrintSub();
     }, []);
 
-<<<<<<< HEAD
     useEffect(() => {
         if (maxFootPrintSub && maxFootPrintSub.carbon) {
             getNonSubList(maxFootPrintSub, carbon, type);
         }
     }, [maxFootPrintSub]);
-=======
-  useEffect(() => {
-    if (maxFootPrintSub && maxFootPrintSub.carbon) {
-      getNonSubList(maxFootPrintSub, carbon, type);
-    }
-  }, [maxFootPrintSub]);
->>>>>>> 9dc6bb9d30a95d0d665147e9c6aea566aa1ea039
 
     return (
         <div>
