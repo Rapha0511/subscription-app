@@ -11,6 +11,7 @@
 - Run `npm run dev` to run the front end using vite
 - Open another terminal and go to the root of the project
 - Run `json-server --watch data.json`
+- go to http://localhost:5173/ ( or see the location on the terminal where you run npm run dev)
 
 # How to use
 
