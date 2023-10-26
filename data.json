@@ -1,66 +1,66 @@
 {
-  "abonnements": [
-    {
-      "id": "31f7291d-db31-4c10-a3d5-ff163785ae5e",
-      "nom": "Orange",
-      "description": "Un service de Téléphonie",
-      "prix": 12.99,
-      "carbon": 10,
-      "impact": "Neutre",
-      "type": "telecom",
-      "image": "./src/assets/Orange_logo.svg.png"
-    },
-    {
-      "id": "20dbdcd0-4997-41d1-8e6a-2443db42e80a",
-      "nom": "SFR",
-      "description": "Un service de Téléphonie",
-      "prix": 1.99,
-      "carbon": 50,
-      "impact": "Neutre",
-      "type": "telecom",
-      "image": "./src/assets/SFR-2022-logo.svg"
-    },
-    {
-      "id": "5f7e80c9-af44-48ef-9bf7-e08019a1c2a3",
-      "nom": "OCS",
-      "description": "Un service de streaming",
-      "prix": 22.99,
-      "carbon": 40,
-      "impact": "Neutre",
-      "type": "streaming",
-      "image": "./src/assets/OCS_logo.png"
-    }
-  ],
-  "abonnementsList": [
-    {
-      "id": "3410952e-ad88-4357-b985-ed979a5ab7a5",
-      "nom": "Free",
-      "description": "Un service de Téléphonie",
-      "prix": 10.99,
-      "carbon": 5,
-      "impact": "Neutre",
-      "type": "telecom",
-      "image": "./src/assets/Free_logo.svg.png"
-    },
-    {
-      "id": "c11c3d98-aac6-417e-a114-f55cf9a5f8da",
-      "nom": "Netflix",
-      "description": "Un service de streaming",
-      "prix": 20.99,
-      "carbon": 20,
-      "impact": "Neutre",
-      "type": "streaming",
-      "image": "./src/assets/netflixlogo.png"
-    },
-    {
-      "id": "7d802b36-12b7-48f6-9b1f-cb1b504b6219",
-      "nom": "Bouygue Telecom",
-      "description": "Un service de Téléphonie",
-      "prix": 12.99,
-      "carbon": 40,
-      "impact": "Bon",
-      "type": "telecom",
-      "image": "./src/assets/Bouygues_Telecom_(alt_logo).svg.png"
-    }
-  ]
+    "abonnements": [
+        {
+            "id": "31f7291d-db31-4c10-a3d5-ff163785ae5e",
+            "nom": "Orange",
+            "description": "Un service de Téléphonie",
+            "prix": 12.99,
+            "carbon": 10,
+            "impact": "Bon",
+            "type": "Téléphonie",
+            "image": "./src/assets/Orange_logo.svg.png"
+        },
+        {
+            "id": "20dbdcd0-4997-41d1-8e6a-2443db42e80a",
+            "nom": "SFR",
+            "description": "Un service de Téléphonie",
+            "prix": 1.99,
+            "carbon": 50,
+            "impact": "Neutre",
+            "type": "Téléphonie",
+            "image": "./src/assets/SFR-2022-logo.svg"
+        },
+        {
+            "id": "5f7e80c9-af44-48ef-9bf7-e08019a1c2a3",
+            "nom": "OCS",
+            "description": "Un service de streaming",
+            "prix": 22.99,
+            "carbon": 40,
+            "impact": "Mauvais",
+            "type": "Streaming",
+            "image": "./src/assets/OCS_logo.png"
+        }
+    ],
+    "abonnementsList": [
+        {
+            "id": "3410952e-ad88-4357-b985-ed979a5ab7a5",
+            "nom": "Free",
+            "description": "Un service de Téléphonie",
+            "prix": 10.99,
+            "carbon": 5,
+            "impact": "Neutre",
+            "type": "Téléphonie",
+            "image": "./src/assets/Free_logo.svg.png"
+        },
+        {
+            "id": "c11c3d98-aac6-417e-a114-f55cf9a5f8da",
+            "nom": "Netflix",
+            "description": "Un service de streaming",
+            "prix": 20.99,
+            "carbon": 20,
+            "impact": "Mauvais",
+            "type": "Streaming",
+            "image": "./src/assets/netflixlogo.png"
+        },
+        {
+            "id": "7d802b36-12b7-48f6-9b1f-cb1b504b6219",
+            "nom": "Bouygue Telecom",
+            "description": "Un service de Téléphonie",
+            "prix": 12.99,
+            "carbon": 40,
+            "impact": "Bon",
+            "type": "Téléphonie",
+            "image": "./src/assets/Bouygues_Telecom_(alt_logo).svg.png"
+        }
+    ]
 }
