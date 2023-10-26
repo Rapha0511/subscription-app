@@ -1,16 +1,17 @@
 export default function SubscriptionItem({
+
     nom,
     description,
     prix,
     impact,
-    actionButton,
-    action,
+    redirect,
+  carbon,
+
 }) {
-    const isAddAction = action === "delete" ? "delete" : "add";
 
     return (
         <div>
-            <div className="sub__card">
+            <div onClick={redirect} className="sub__card">
                 <div className="sub__logo">
                     <img src="https://via.placeholder.com/40x40" />
                 </div>
@@ -25,4 +26,5 @@ export default function SubscriptionItem({
             </div>
         </div>
     );
+
 }
