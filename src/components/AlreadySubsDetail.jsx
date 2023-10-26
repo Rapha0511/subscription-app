@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import Recommendation from "./recommendation";
+import Recommendation from "./Recommendation";
 
 export default function AlreadySubsDetail() {
     const [abonnement, setAbonnement] = useState([]);
