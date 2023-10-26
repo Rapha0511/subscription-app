@@ -1,5 +1,6 @@
 # Perequisites
-This project is using Vite JS
+This project is using Vite JS.
+
 Vite JS requires Node.js version 14.18+, 16+. However, some templates require a higher Node.js version to work, please upgrade if your package manager warns about it.
 
 cf : https://vitejs.dev/
@@ -9,7 +10,7 @@ cf : https://vitejs.dev/
 - Clone the project
 - Go to the root of the project
 - run `npm install` to install all the dependencies
-- run `npm install -g json-server' to install json-server, used to make a fake db
+- run `npm install -g json-server` to install json-server, used to make a fake db
 
 # how to run the application
 
@@ -17,11 +18,11 @@ cf : https://vitejs.dev/
 - Run `npm run dev` to run the front end using vite
 - Open another terminal and go to the root of the project
 - Run `json-server --watch data.json`
-- go to http://localhost:5173/ ( or see the location on the terminal where you run npm run dev)
+- Go to http://localhost:5173/ ( or see the location on the terminal where you run npm run dev)
 
 # How to use
 
-- The goal of this application is to manage the different subscription you have (phone, streaming ...).
+- The goal of this application is to manage the different subscriptions you may have (phone, streaming ...).
 - On the first page, you can see your subscriptions, you can click on them, read the details and delete them.
 
 - You can also browse through all differents subscriptions you may be interested in, read the details and add them.
