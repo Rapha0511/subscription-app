@@ -2,17 +2,18 @@ export default function SubscriptionItem({
   nom,
   description,
   prix,
-  actionButton,
-  action,
+  redirect,
+  carbon,
 }) {
-  const isAddAction = action === "delete" ? "delete" : "add";
-
   return (
-    <div style={{ border: "1px solid black", width: "200px" }}>
+    <div
+      style={{ border: "1px solid black", width: "200px" }}
+      onClick={redirect}
+    >
       <p>{nom}</p>
       <p>{description}</p>
       <p>{prix}</p>
-      <button onClick={actionButton}>{isAddAction}</button>
+      <p>{carbon}</p>
     </div>
   );
 }

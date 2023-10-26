@@ -1,54 +1,33 @@
 {
   "abonnements": [
     {
-      "id": 1,
-      "nom": "Netflix",
-      "description": "Un service de streaming vidéo",
-      "prix": 10.99
-    },
-    {
-      "id": 2,
-      "nom": "Spotify",
-      "description": "Un service de streaming musical",
-      "prix": 9.99
-    },
-    {
-      "id": 4,
-      "nom": "Free",
+      "id": "e7376e3d-ccaf-4edd-a44b-c89541bb2080",
+      "nom": "SFR",
       "description": "Un service de Téléphonie",
-      "prix": 10.99
+      "prix": 1.99,
+      "carbon": 50
     },
     {
-      "id": 7,
+      "id": "3062213c-ab84-489a-9e18-b6d5eecde10d",
       "nom": "Bouygue Telecom",
       "description": "Un service de Téléphonie",
-      "prix": 1.99
-    }
-  ],
-  "abonnementsList": [
-    {
-      "id": 4,
-      "nom": "Free",
-      "description": "Un service de Téléphonie",
-      "prix": 10.99
+      "prix": 12.99,
+      "carbon": 40
     },
     {
-      "id": 5,
+      "id": "f1138e1b-6868-46cc-bba6-d7050152d8a1",
+      "nom": "Free",
+      "description": "Un service de Téléphonie",
+      "prix": 10.99,
+      "carbon": 5
+    },
+    {
+      "id": "2da03b1c-d838-45cb-8c4b-2b9a6f7bf2b2",
       "nom": "Orange",
       "description": "Un service de Téléphonie",
-      "prix": 9.99
-    },
-    {
-      "id": 6,
-      "nom": "Bouygue Telecom",
-      "description": "Un service de Téléphonie",
-      "prix": 12.99
-    },
-    {
-      "id": 7,
-      "nom": "Bouygue Telecom",
-      "description": "Un service de Téléphonie",
-      "prix": 1.99
+      "prix": 9.99,
+      "carbon": 60
     }
-  ]
+  ],
+  "abonnementsList": []
 }

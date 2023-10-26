@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import SubscriptionItem from "./components/SubscriptionItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FilterBar from "./components/FilterBar";
 import PriceFilterButton from "./components/PriceFilterButton";
+import Recommendation from "./components/recommendation";
 import utils from "./utils/utils";
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
     price: null,
   });
   const [filteredArray, setFilteredArray] = useState([]);
-
+  let navigate = useNavigate();
   /**
    * Get all subs
    */
@@ -21,22 +22,6 @@ const App = () => {
     const res = await response.json();
     console.log(res);
     setAbonnements(res);
-  };
-
-  /**
-   * remove one sub
-   */
-  const deleteSubscription = async (id) => {
-    const response = await fetch(`http://localhost:3000/abonnements/${id}`, {
-      method: "DELETE",
-    });
-
-    if (response.status === 204) {
-      console.log("sub successfully removed");
-    } else {
-      console.log("error while removing sub");
-    }
-    fetchAbonnements();
   };
 
   useEffect(() => {
@@ -66,11 +51,12 @@ const App = () => {
           nom={abonnement.nom}
           description={abonnement.description}
           prix={abonnement.prix}
-          actionButton={() => deleteSubscription(abonnement.id)}
-          action="delete"
+          carbon={abonnement.carbon}
+          redirect={() => navigate(`/mySubDetails/${abonnement.id}`)}
         />
       ))}
       <Link to={"/list"}>liste d'abonnement</Link>
+      <Recommendation />
     </div>
   );
 };

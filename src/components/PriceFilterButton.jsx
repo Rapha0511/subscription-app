@@ -11,7 +11,6 @@ export default function PriceFilterButton({
     } else {
       setFilteringOptions({ ...filteringOptions, price: !price });
     }
-    console.log(price);
   };
   return (
     <div>
