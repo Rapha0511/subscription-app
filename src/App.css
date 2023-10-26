@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
 }
 
 * {
@@ -56,12 +56,16 @@ body {
     align-items: center;
     height: 120px;
     border-radius: 16px 16px 0 0;
-    background-color: #eaf2ef;
+    background-color: #eaf2ff;
 }
 .sub__info {
     background-color: #f8f9fe;
     border-radius: 0 0 16px 16px;
     padding: 16px;
+}
+
+.sub__image {
+    width: 60px;
 }
 
 .sub__info p {
@@ -72,7 +76,6 @@ body {
     font-weight: bold;
 }
 .sub__impact {
-    background-color: #006ffd;
     border-radius: 12px;
     padding: 6px 8px;
     color: #fff;
@@ -82,4 +85,15 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+.impact__green {
+    background-color: #298267;
+}
+
+.impact__blue {
+    background-color: #006ffd;
+}
+
+.impact__red {
+    background-color: #d82f3d;
 }
