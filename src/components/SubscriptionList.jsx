@@ -36,6 +36,7 @@ export default function SubscriptionList() {
 
     return (
         <div>
+            <Header />
             <FilterBar
                 filteringOptions={filteringOptions}
                 setFilteringOptions={setFilteringOptions}

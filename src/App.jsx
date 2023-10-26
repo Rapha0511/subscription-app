@@ -68,7 +68,9 @@ const App = () => {
                     </div>
                 ))}
             </div>
-            <Link to={"/list"}>liste d'abonnement</Link>
+            <Link className="sub__link" to={"/list"}>
+                Ajouter un abonnement
+            </Link>
             <Recommendation />
         </div>
     );

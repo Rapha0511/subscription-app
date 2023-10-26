@@ -57,12 +57,15 @@ export default function AlreadySubsDetail() {
 
     return (
         <div>
-            <h1>details de ton abonnement</h1>
             <p>{abonnement.nom}</p>
-            <p>{abonnement.description}</p>
-            <p>{abonnement.prix}</p>
+            <p>{abonnement.type}</p>
+            <div className="details__image">
+                <img src={abonnement.image} />
+            </div>
+            <p>Impact environnemental </p>
+            <p>Description de l'outil : {abonnement.description}</p>
+            <p>Actualités</p>
             <button onClick={() => deleteSubscription(id)}>Delete</button>
-            <Recommendation type={abonnement.type} carbon={abonnement.carbon} />
         </div>
     );
 }

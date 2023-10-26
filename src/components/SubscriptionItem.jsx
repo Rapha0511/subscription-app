@@ -1,3 +1,4 @@
+import Header from "./Header";
 export default function SubscriptionItem({
     nom,
     description,
