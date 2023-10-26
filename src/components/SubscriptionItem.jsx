@@ -1,14 +1,11 @@
 export default function SubscriptionItem({
-
     nom,
     description,
     prix,
     impact,
     redirect,
-  carbon,
-
+    carbon,
 }) {
-
     return (
         <div>
             <div onClick={redirect} className="sub__card">
@@ -21,10 +18,8 @@ export default function SubscriptionItem({
                         <span className="sub__info-span">{prix}</span> / mois
                     </p>
                     <p className="sub__impact">{impact}</p>
-                    <button onClick={actionButton}>{isAddAction}</button>
                 </div>
             </div>
         </div>
     );
-
 }
