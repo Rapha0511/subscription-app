@@ -9,63 +9,69 @@ import Header from "./components/Header";
 import "./App.css";
 
 const App = () => {
-  const [abonnements, setAbonnements] = useState([]);
-  const [filteringOptions, setFilteringOptions] = useState({
-    name: "",
-    price: null,
-  });
-  const [filteredArray, setFilteredArray] = useState([]);
-  let navigate = useNavigate();
-  /**
-   * Get all subs
-   */
-  const fetchAbonnements = async () => {
-    const response = await fetch("http://localhost:3000/abonnements");
-    const res = await response.json();
-    console.log(res);
-    setAbonnements(res);
-  };
+    const [abonnements, setAbonnements] = useState([]);
+    const [filteringOptions, setFilteringOptions] = useState({
+        name: "",
+        price: null,
+    });
+    const [filteredArray, setFilteredArray] = useState([]);
+    let navigate = useNavigate();
+    /**
+     * Get all subs
+     */
+    const fetchAbonnements = async () => {
+        const response = await fetch("http://localhost:3000/abonnements");
+        const res = await response.json();
+        console.log(res);
+        setAbonnements(res);
+    };
 
-  useEffect(() => {
-    fetchAbonnements();
-  }, []);
+    useEffect(() => {
+        fetchAbonnements();
+    }, []);
 
-  useEffect(() => {
-    utils.filterData(abonnements, filteringOptions, setFilteredArray); // Update filteredArray when filteringOptions change
-  }, [filteringOptions]);
+    useEffect(() => {
+        utils.filterData(abonnements, filteringOptions, setFilteredArray); // Update filteredArray when filteringOptions change
+    }, [filteringOptions]);
 
-  const arrayToDisplay = !filteredArray.length ? abonnements : filteredArray;
+    const arrayToDisplay = !filteredArray.length ? abonnements : filteredArray;
 
-  return (
-    <div>
-      <Header />
-      <FilterBar
-        filteringOptions={filteringOptions}
-        setFilteringOptions={setFilteringOptions}
-      />
-      <PriceFilterButton
-        filteringOptions={filteringOptions}
-        setFilteringOptions={setFilteringOptions}
-      />
-      <div className="subscription__grid">
-        {arrayToDisplay.map((abonnement) => (
-          <div key={abonnement.id} className="subscription__container">
-            <SubscriptionItem
-              key={abonnement.id}
-              nom={abonnement.nom}
-              description={abonnement.description}
-              prix={abonnement.prix}
-              carbon={abonnement.carbon}
-              impact={abonnement.impact}
-              redirect={() => navigate(`/mySubDetails/${abonnement.id}`)}
+    return (
+        <div>
+            <Header />
+            <FilterBar
+                filteringOptions={filteringOptions}
+                setFilteringOptions={setFilteringOptions}
             />
-          </div>
-        ))}
-      </div>
-      <Link to={"/list"}>liste d'abonnement</Link>
-      <Recommendation />
-    </div>
-  );
+            <PriceFilterButton
+                filteringOptions={filteringOptions}
+                setFilteringOptions={setFilteringOptions}
+            />
+            <div className="subscription__grid">
+                {arrayToDisplay.map((abonnement) => (
+                    <div
+                        key={abonnement.id}
+                        className="subscription__container"
+                    >
+                        <SubscriptionItem
+                            key={abonnement.id}
+                            nom={abonnement.nom}
+                            description={abonnement.description}
+                            prix={abonnement.prix}
+                            carbon={abonnement.carbon}
+                            impact={abonnement.impact}
+                            image={abonnement.image}
+                            redirect={() =>
+                                navigate(`/mySubDetails/${abonnement.id}`)
+                            }
+                        />
+                    </div>
+                ))}
+            </div>
+            <Link to={"/list"}>liste d'abonnement</Link>
+            <Recommendation />
+        </div>
+    );
 };
 
 export default App;

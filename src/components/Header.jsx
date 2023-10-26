@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Si vous utilisez des liens vers d'autres pages
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
